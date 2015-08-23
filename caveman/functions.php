@@ -330,23 +330,6 @@
 						#main { padding-top: 0; }
 					}
 				</style>
-				<script>				
-					/* <![CDATA[ */
-						jQuery(function($) { 
-							if ( ! $.browser.msie ) {
-								$(window).scroll(function () { 		
-									var scrollTop = $(document).scrollTop();		
-									if ( scrollTop > 10 ) {
-										$('#branding_wrap').fadeTo(500, .9);	
-									}else{		
-										$('#branding_wrap').fadeTo(500, 1);
-									}
-								});
-							}
-						});				
-					/* ]]&gt; */
-				</script>
-				<!-- // Added via wp_head -->
 				<?php
 			}
 		}

@@ -50,8 +50,8 @@
 					<?php } ?>
 				</hgroup>		
 				<nav class="<?php echo $menu_columns; ?> columns" id="navigation" role="navigation">
-					<?php wp_nav_menu( array( 'menu_class' => 'sf-menu clearfix', 'theme_location' => 'primary', 'fallback_cb' => 'cudazi_menu_fallback' ) ); ?>						
-					<?php echo cudazi_alternate_menu( array( 'menu_name' => 'primary', 'display' => 'select' ) ); ?>
+					<?php wp_nav_menu( array( 'menu_class' => 'sf-menu clearfix', 'theme_location' => 'primary', 'fallback_cb' => 'cudazi_menu_fallback' ) ); ?>
+					<?php //echo cudazi_alternate_menu( array( 'menu_name' => 'primary', 'display' => 'select' ) ); ?>
 				</nav>
 			</div><!--//container (skeleton) -->
 		</header><!--//header-->
