@@ -2,13 +2,26 @@
 
 	<?php 
 		$ft_image_atts = array( 'fallback_to_first_attached' => false );
-		echo cudazi_featured_image( $ft_image_atts ); 
+		$featuredImage = cudazi_featured_image( $ft_image_atts );
+		//var_dump(get_defined_vars());
+		if ($featuredImage) {
 	?>
-	
+
+	<div class='featured-image'>
+		<a href='<?php echo the_permalink() ?>'>
+			<img src='<?php echo $featuredImage['image'] ?>' alt='<?php echo the_title_attribute(array('echo'=>0)) ?>' />
+		</a>
+		<h2 class="entry-title"><?php the_title(); ?></h2>
+	</div>
+
+	<?php } ?>
+
 	<div class="entry-wrap">
 
-		<header class="entry-header">	
-			<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'cudazi' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+		<header class="entry-header">
+			<?php if (!$featuredImage) { ?>
+				<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'cudazi' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+			<?php } ?>
 			<div class="post-format-icon"></div>		
 			<time class="entry-date" datetime="<?php the_time('c'); ?>" pubdate="pubdate" title="<?php the_time( get_option('date_format') ); ?>">
 				<?php the_time( 'M d' ); ?>

@@ -156,6 +156,29 @@ article.post, article.page {
 
 .featured-image {
   margin-bottom: 0;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.featured-image a {
+  display: block;
+  position: absolute;
+  top: -50%;
+  /*margin-top: 150px;*/
+}
+
+.featured-image .entry-title {
+  position: absolute;
+  /*top: 200px;*/
+  bottom: 0;
+  z-index: 2;
+  padding: 0 20px;
+  color: #000;
+  display: inline-block;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: rgba(255, 255, 255, .7);
 }
 
 .entry-content {
@@ -164,7 +187,6 @@ article.post, article.page {
 
 .entry-content iframe, .entry-content img {
   max-width: 100%;
-  background-color: red;
 }
 
 h3.widgettitle, .widget #wp-calendar caption {
@@ -201,6 +223,12 @@ h3.widgettitle, .widget #wp-calendar caption {
 
   #branding .container hgroup {
     margin: 0 10px;
+  }
+
+  .featured-image a {
+    display: block;
+    position: absolute;
+    top: 0;
   }
 }
 

@@ -164,12 +164,13 @@
 				}
 				
 				// Return HTML if image found
-				if ( $image_full && $image ) { 
-					return "<div class='featured-image'>
-						<a href='". $image_full . "'>
-							<img src='". $image . "' alt='" . the_title_attribute(array('echo'=>0)) . "' />
-						</a>
-					</div>";
+				if ( $image_full && $image ) {
+					// return "<div class='featured-image'>
+					// 	<a href='". $image_full . "'>
+					// 		<img src='". $image . "' alt='" . the_title_attribute(array('echo'=>0)) . "' />
+					// 	</a>
+					// </div>";
+					return array('image'=>$image, 'image_full'=>$image_full);
 				}else{ 
 					return false; 
 				}

@@ -15,7 +15,14 @@
 	
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-
+	<?php
+		$postData = get_post_custom($post->ID);
+		if ($postData['og:url'] && $postData['og:url'][0]) {
+	?>
+		<meta property="og:url" content="<?php echo $postData['og:url'][0] ?>">
+	<?php
+		}
+	?>
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
@@ -24,7 +31,7 @@
 	<?php
 		// See functions.php for CSS / JAVASCRIPT information
 		wp_head(); // do not remove this		
-	?>		
+	?>
 </head>
 <body <?php body_class(); ?>>
 
