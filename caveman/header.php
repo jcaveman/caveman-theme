@@ -34,9 +34,10 @@
 	?>
 </head>
 <body <?php body_class(); ?>>
-
+	<input type="checkbox" id="mobile-menu-state">
 	<div id="branding_wrap">
-		<header id="branding">	
+		<div class="stripe"><div class="bar"></div><div class="bar"></div></div>
+		<header id="branding">
 			<div class="container">
 			
 				<?php
@@ -49,8 +50,13 @@
 						$menu_columns = $header_layout[1];
 					}					
 				?>
-			
-				<hgroup class="<?php echo $logo_columns; ?> columns">				
+				<label for="mobile-menu-state" class="hamburger">
+					<i class="bar"></i>
+					<i class="bar"></i>
+					<i class="bar"></i>
+					<i class="bar"></i>
+				</label>
+				<hgroup class="<?php echo $logo_columns; ?> columns">
 					<h1 id="logo"><?php echo cudazi_get_logo(); ?></h1>
 					<?php if ( ! cudazi_get_option( 'disable_tagline', false ) ) { ?>
 					<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
@@ -63,6 +69,12 @@
 			</div><!--//container (skeleton) -->
 		</header><!--//header-->
 	</div>
+			<div class="mobile-menu-wrap">
+				<div class="mobile-menu">
+					<?php wp_nav_menu( array( 'menu_class' => 'nav' ) ); ?>
+					<?php	dynamic_sidebar( 'column-two-all' ); ?>
+				</div>
+			</div>
 		
 	<section id="main">
 

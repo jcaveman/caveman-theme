@@ -29,6 +29,7 @@ template: caveman
 body {
   font-family: 'Proxima Nova light';
   background-color: #e9eaed;
+  padding-bottom: 0;
 }
 
 *, a {
@@ -51,27 +52,42 @@ h2 {
   color: #f4f4f4;
 }
 
-#primary, #secondary, #brading_wrap {
+#primary, #secondary, #branding_wrap {
   background-color: transparent;
 }
 
 #branding_wrap {
   border: none;
   box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, .2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
 }
 
 #branding {
-  background: #252525;
-  opacity: 0.87;
+  background: rgba(37, 37, 37, .87);
   border: none;
 }
 
-#branding:before {
-  content: "";
-  width: 100%;
+.stripe {
+  width: 200%;
   height: 5px;
-  display: block;
-  background: rgb(6,0,255); /* Old browsers */
+  margin: 0;
+  padding: 0;
+  transition: margin 1s ease;
+}
+
+.stripe .bar {
+  float: left;
+  width: 50%;
+  height: 5px;
+  position: relative;
+  top: 0;
+}
+
+.stripe .bar:nth-child(1) {
   background: -moz-linear-gradient(left,  rgba(6,0,255,1) 0%, rgba(0,214,8,1) 50%, rgba(255,255,0,1) 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(6,0,255,1)), color-stop(50%,rgba(0,214,8,1)), color-stop(100%,rgba(255,255,0,1))); /* Chrome,Safari4+ */
   background: -webkit-linear-gradient(left,  rgba(6,0,255,1) 0%,rgba(0,214,8,1) 50%,rgba(255,255,0,1) 100%); /* Chrome10+,Safari5.1+ */
@@ -79,6 +95,20 @@ h2 {
   background: -ms-linear-gradient(left,  rgba(6,0,255,1) 0%,rgba(0,214,8,1) 50%,rgba(255,255,0,1) 100%); /* IE10+ */
   background: linear-gradient(to right,  rgba(6,0,255,1) 0%,rgba(0,214,8,1) 50%,rgba(255,255,0,1) 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0600ff', endColorstr='#ffff00',GradientType=1 ); /* IE6-9 */
+}
+
+.stripe .bar:nth-child(2) {
+  background: -moz-linear-gradient(left,  rgba(6,0,255,1) 0%, rgba(0,214,8,1) 50%, rgba(255,255,0,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(6,0,255,1)), color-stop(50%,rgba(0,214,8,1)), color-stop(100%,rgba(255,255,0,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  rgba(6,0,255,1) 0%,rgba(0,214,8,1) 50%,rgba(255,255,0,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  rgba(6,0,255,1) 0%,rgba(0,214,8,1) 50%,rgba(255,255,0,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  rgba(6,0,255,1) 0%,rgba(0,214,8,1) 50%,rgba(255,255,0,1) 100%); /* IE10+ */
+  background: linear-gradient(to right, rgba(255,255,0,1) 0%,rgba(0,214,8,1) 50%, rgba(6,0,255,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0600ff', endColorstr='#ffff00',GradientType=1 ); /* IE6-9 */
+}
+
+.container {
+  padding: 5px 0;
 }
 
 #branding hgroup {
@@ -91,7 +121,7 @@ h2 {
 }
 
 #branding #logo {
-  line-height: 80px;
+  line-height: 60px;
 }
 
 #branding #site-description {
@@ -104,14 +134,14 @@ h2 {
 }
 
 .sf-menu {
-  height: 80px;
+  height: 60px;
   margin-top: 0;
 }
 
 .sf-menu .menu-item a {
   font-family: 'Lato';
   font-size: 13px;
-  line-height: 80px;
+  line-height: 60px;
   padding: 0 20px 0 0;
   transition: color 0.3s ease;
   color: #f4f4f4;
@@ -133,6 +163,72 @@ h2 {
 .widget li a {
   display: block;
   width: 100%;
+}
+
+#branding .hamburger {
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin: 10px;
+  overflow: hidden;
+  border-radius: 2px;
+  -webkit-transition:-webkit-transform 1s ease;
+  transition: transform 1s ease;
+}
+
+#mobile-menu-state:checked ~ #branding_wrap .hamburger {
+  -webkit-transform:rotate(495deg);
+  transform:rotate(495deg);
+}
+
+#mobile-menu-state:checked ~ #branding_wrap .stripe {
+  margin-left: -100%;
+}
+
+#branding .hamburger .bar {
+  width: 20px;
+  height: 20px;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+
+#branding .hamburger .bar:nth-child(1) {
+  background-color: #0600ff;
+}
+#branding .hamburger .bar:nth-child(2) {
+  background-color: #00d708;
+}
+#branding .hamburger .bar:nth-child(3) {
+  background-color: #ffff00;
+}
+#branding .hamburger .bar:nth-child(4) {
+  background-color: #000;
+}
+.mobile-menu .widget {
+  margin: 0;
+  padding: 0;
+}
+
+#mobile-menu-state {
+  display: none;
+}
+
+.mobile-menu-wrap {
+  display: none;
+  transition: height 1s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.mobile-menu-wrap .mobile-menu {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#main {
+  margin-top: 85px;
 }
 
 article.post, article.page {
@@ -165,7 +261,6 @@ article.post, article.page {
   display: block;
   position: absolute;
   top: -50%;
-  /*margin-top: 150px;*/
 }
 
 .featured-image .entry-title {
@@ -204,6 +299,61 @@ h3.widgettitle, .widget #wp-calendar caption {
 }
 
 @media only screen and (max-width: 767px) {
+
+  .mobile-menu-wrap {
+    background-color: #fff;
+    display: block;
+    height: 0;
+    margin-top: 80px;
+  }
+
+  #mobile-menu-state:checked ~ .mobile-menu-wrap {
+    height: 847px;
+  }
+
+  #mobile-menu-state:checked ~ #main {
+    display: none;
+  }
+
+  .mobile-menu .nav {
+    margin-bottom: 0px;
+  }
+
+  .mobile-menu li.menu-item,
+  .mobile-menu .widget li {
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    box-shadow: 0px 0px 1px 0px #ccc;
+  }
+
+  .mobile-menu li.menu-item a,
+  .mobile-menu .widget li a {
+    display: block;
+    padding: 15px 20px;
+    width: 100%;
+    font-size: 16px;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .mobile-menu .widget .widgettitle {
+    padding: 10px 20px;
+    margin: 0;
+  }
+
+  .mobile-menu #searchform {
+    box-shadow: 0px 0px 1px 0px #ccc;
+    padding: 5px;
+  }
+
+  .mobile-menu #searchsubmit {
+    top: 12px;
+    right: 15px;
+  }
+
   .container {
     width: 100%;
   }
@@ -215,6 +365,7 @@ h3.widgettitle, .widget #wp-calendar caption {
 
   #main {
     padding: 0 10px;
+    margin-top: 0;
   }
 
   #branding_wrap {
@@ -222,7 +373,12 @@ h3.widgettitle, .widget #wp-calendar caption {
   }
 
   #branding .container hgroup {
-    margin: 0 10px;
+    margin: 0 10px 0 0;
+  }
+
+  article.post, article.page {
+    overflow: hidden;
+    margin-bottom: 20px;
   }
 
   .featured-image a {
@@ -247,6 +403,10 @@ h3.widgettitle, .widget #wp-calendar caption {
 
   #branding_wrap {
     margin-bottom: 0;
+  }
+
+  .post {
+    padding-top: 10px;
   }
 
   .entry-wrap {
