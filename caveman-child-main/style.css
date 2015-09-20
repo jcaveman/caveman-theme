@@ -108,7 +108,7 @@ h2 {
 }
 
 .container {
-  padding: 5px 0;
+  padding: 7px 0 5px;
 }
 
 #branding hgroup {
@@ -227,6 +227,16 @@ h2 {
   width: 100%;
 }
 
+.mobile-menu-wrap .mobile-menu .widget_search {
+  box-shadow: none;
+  position: relative;
+  z-index: 2;
+}
+
+.mobile-menu-wrap .mobile-menu .widget_search #searchform {
+  box-shadow: inset 0px 0px 2px 2px rgba(204,204,204,.4);
+}
+
 #main {
   margin-top: 85px;
 }
@@ -308,7 +318,7 @@ h3.widgettitle, .widget #wp-calendar caption {
   }
 
   #mobile-menu-state:checked ~ .mobile-menu-wrap {
-    height: 847px;
+    height: 940px;
   }
 
   #mobile-menu-state:checked ~ #main {
@@ -339,6 +349,25 @@ h3.widgettitle, .widget #wp-calendar caption {
     overflow: hidden;
   }
 
+  .mobile-menu li.menu-item a:active,
+  .mobile-menu li.menu-item a:hover,
+  .mobile-menu li.menu-item a:visited,
+  .mobile-menu li.menu-item a:link,
+  .mobile-menu .widget li a:active,
+  .mobile-menu .widget li a:hover,
+  .mobile-menu .widget li a:visited,
+  .mobile-menu .widget li a:link {
+    text-decoration: none;
+  }
+
+  .mobile-menu li.menu-item a:active,
+  .mobile-menu li.menu-item a:hover,
+  .mobile-menu .widget li a:active,
+  .mobile-menu .widget li a:hover {
+    background-color: #007bb6;
+    color: #fff;
+  }
+
   .mobile-menu .widget .widgettitle {
     padding: 10px 20px;
     margin: 0;
@@ -347,6 +376,10 @@ h3.widgettitle, .widget #wp-calendar caption {
   .mobile-menu #searchform {
     box-shadow: 0px 0px 1px 0px #ccc;
     padding: 5px;
+  }
+
+  .mobile-menu #searchform input[type="text"] {
+    padding-left: 30px;
   }
 
   .mobile-menu #searchsubmit {
@@ -373,7 +406,7 @@ h3.widgettitle, .widget #wp-calendar caption {
   }
 
   #branding .container hgroup {
-    margin: 0 10px 0 0;
+    margin: 0 5px;
   }
 
   article.post, article.page {
